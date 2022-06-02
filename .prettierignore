@@ -1,0 +1,10 @@
+# Node
+node_modules/
+package-lock.json
+package.json
+
+# TypeScript Output
+dist/
+
+# Documentation
+docs/
