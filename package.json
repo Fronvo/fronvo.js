@@ -29,7 +29,8 @@
     "ora": "^5.4.1",
     "socket.io-client": "^4.4.1",
     "socket.io-msgpack-parser": "^3.0.1",
-    "tsconfig-paths": "^3.14.1"
+    "tsconfig-paths": "^3.14.1",
+    "typedoc-plugin-missing-exports": "^0.22.6"
   },
   "devDependencies": {
     "@swc-node/register": "^1.5.1",
