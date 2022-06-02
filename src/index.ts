@@ -11,7 +11,7 @@ import { serverUrl, setSocket, socket } from 'variables/global';
 
 export class Fronvo {
     // To determine connection status
-    private hasConnected!: boolean;
+    private _hasConnected!: boolean;
 
     // The registered bot events
     private _events: { [key: string]: Event } = {};
@@ -21,7 +21,7 @@ export class Fronvo {
     }
 
     private _connect(token: string): void {
-        if (this.hasConnected) {
+        if (this._hasConnected) {
             throw generateError('ALREADY_CONNECTED');
         }
 
@@ -36,14 +36,14 @@ export class Fronvo {
 
         // Create connect handle
         socket.on('connect', () => {
-            this.hasConnected = true;
+            this._hasConnected = true;
 
             this._login(token);
         });
 
         // Set connection timeout
         setTimeout(() => {
-            if (!this.hasConnected) {
+            if (!this._hasConnected) {
                 throw generateError('CONNECTION_FAILURE');
             }
         }, 2000);
