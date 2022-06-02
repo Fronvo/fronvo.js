@@ -17,7 +17,7 @@
     "build": "tsc --project tsconfig.build.json",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "docs": "typedoc src/main/index.ts",
+    "docs": "typedoc src/index.ts",
     "prepare": "husky install"
   },
   "dependencies": {
