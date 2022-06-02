@@ -15,7 +15,7 @@
   "homepage": "https://github.com/Fronvo/fronvo.js#readme",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "format": "prettier --plugin-search-dir=. --write .",
+    "format": "prettier --write .",
     "format:check": "prettier --check .",
     "docs": "typedoc src/main/index.ts",
     "prepare": "husky install"
