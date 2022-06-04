@@ -9,6 +9,7 @@ import { io } from 'socket.io-client';
 import binaryParser from 'socket.io-msgpack-parser';
 import { serverUrl, setSocket, socket } from 'variables/global';
 
+// TODO: Extend event classes, maybe combine to one due to limitations
 export class Fronvo {
     // To determine connection status
     private _hasConnected!: boolean;
@@ -54,6 +55,7 @@ export class Fronvo {
             if (err) {
                 throw generateError('INVALID_TOKEN');
             } else {
+                // TODO: Fill in this._bot data with the FronvoBotData interface, then call 'ready'
                 this._callEvent('ready');
             }
         });
