@@ -33,6 +33,7 @@
     "typedoc-plugin-missing-exports": "^0.22.6"
   },
   "devDependencies": {
+    "@fronvo/api": "^0.1.0",
     "@swc-node/register": "^1.5.1",
     "@types/gradient-string": "^1.1.2",
     "husky": "^7.0.4",
