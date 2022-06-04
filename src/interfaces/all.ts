@@ -11,6 +11,17 @@ export interface FronvoError {
     };
 }
 
+export interface FronvoParams {
+    token: string;
+}
+
+export type FronvoEventNames = 'ready';
+
+export interface FronvoEvent {
+    name: string;
+    callback: () => void;
+}
+
 export type FronvoCallback = ({}: FronvoResult) => void;
 
 export interface FronvoResult {
@@ -18,7 +29,7 @@ export interface FronvoResult {
     remainingPoints: number;
 }
 
-export type EnvValues = 'SERVER_URL';
+export type FronvoEnvValues = 'SERVER_URL';
 
 export interface FronvoAPIError {
     code: number;

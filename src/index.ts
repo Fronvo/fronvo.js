@@ -2,7 +2,7 @@
 //               The official JS/TS API of Fronvo                   //
 // **************************************************************** //
 
-import { Event, EventNames, FronvoParams } from 'interfaces/fronvo';
+import { FronvoEvent, FronvoEventNames, FronvoParams } from 'interfaces/all';
 import { generateError } from 'other/utils';
 import { io } from 'socket.io-client';
 // @ts-ignore
@@ -14,7 +14,7 @@ export class Fronvo {
     private _hasConnected!: boolean;
 
     // The registered bot events
-    private _events: { [key: string]: Event } = {};
+    private _events: { [key: string]: FronvoEvent } = {};
 
     constructor(params: FronvoParams) {
         this._connect(params.token);
@@ -59,14 +59,14 @@ export class Fronvo {
         });
     }
 
-    private _callEvent(event: EventNames): void {
+    private _callEvent(event: FronvoEventNames): void {
         // Doesnt matter if not registered, move on
         if (!(event in this._events)) return;
 
         this._events[event].callback();
     }
 
-    event(name: EventNames, callback: () => void): void {
+    event(name: FronvoEventNames, callback: () => void): void {
         // Dont allow duplicate events
         if (name in this._events) {
             throw generateError('EVENT_EXISTS', [name]);

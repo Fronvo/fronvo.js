@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/Fronvo/fronvo.js#readme",
   "scripts": {
-    "build": "tsc --project tsconfig.build.json",
+    "build": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "docs": "typedoc src/index.ts",
@@ -38,6 +38,7 @@
     "@types/gradient-string": "^1.1.2",
     "husky": "^7.0.4",
     "prettier": "^2.6.2",
+    "tsc-alias": "^1.6.8",
     "typedoc": "^0.22.17",
     "typescript": "^4.6.4"
   },

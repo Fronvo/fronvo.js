@@ -1,5 +1,5 @@
-import { EnvValues } from 'interfaces/all';
+import { FronvoEnvValues } from 'interfaces/all';
 
-export function getEnv(value: EnvValues, fallback?: any): any {
+export function getEnv(value: FronvoEnvValues, fallback?: any): any {
     return process.env[`FRONVO_${value}`] || fallback;
 }
