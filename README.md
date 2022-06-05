@@ -5,6 +5,7 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-science.svg)](https://forthebadge.com)
+![npm](https://img.shields.io/npm/v/@fronvo/api?color=%23ee00ff&label=API&style=for-the-badge)
 
 </h2>
 
