@@ -35,3 +35,9 @@ export interface FronvoAPIError {
     code: number;
     name: string;
 }
+
+export interface FronvoBotInfo {
+    id: string;
+    username: string;
+    creationDate: string;
+}

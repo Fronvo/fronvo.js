@@ -2,7 +2,12 @@
 //               The official JS/TS API of Fronvo                   //
 // **************************************************************** //
 
-import { FronvoEvent, FronvoEventNames, FronvoParams } from 'interfaces/all';
+import {
+    FronvoBotInfo,
+    FronvoEvent,
+    FronvoEventNames,
+    FronvoParams,
+} from 'interfaces/all';
 import { generateError } from 'other/utils';
 import { io } from 'socket.io-client';
 // @ts-ignore
@@ -16,6 +21,9 @@ export class Fronvo {
 
     // The registered bot events
     private _events: { [key: string]: FronvoEvent } = {};
+
+    // Bot data
+    info!: FronvoBotInfo;
 
     constructor(params: FronvoParams) {
         this._connect(params.token);
@@ -39,7 +47,7 @@ export class Fronvo {
         socket.on('connect', () => {
             this._hasConnected = true;
 
-            this._login(token);
+            this._afterConnect(token);
         });
 
         // Set connection timeout
@@ -50,13 +58,35 @@ export class Fronvo {
         }, 2000);
     }
 
-    private _login(token: string): void {
+    private _afterConnect(token: string): void {
+        // Attempt to login with provided token
         socket.emit('loginToken', { token }, ({ err }) => {
             if (err) {
                 throw generateError('INVALID_TOKEN');
             } else {
-                // TODO: Fill in this._bot data with the FronvoBotData interface, then call 'ready'
-                this._callEvent('ready');
+                // Get bot id
+                socket.emit('fetchProfileId', ({ profileId }) => {
+                    socket.emit(
+                        'fetchProfileData',
+                        { profileId },
+                        ({ profileData }) => {
+                            // Spread bot data
+                            const { username, creationDate } = {
+                                ...profileData,
+                            };
+
+                            // Fill in bot info
+                            this._fillBot({
+                                id: profileId,
+                                username,
+                                creationDate,
+                            });
+
+                            // Finally, call 'ready'
+                            this._callEvent('ready');
+                        }
+                    );
+                });
             }
         });
     }
@@ -66,6 +96,11 @@ export class Fronvo {
         if (!(event in this._events)) return;
 
         this._events[event].callback();
+    }
+
+    private _fillBot(botInfo: FronvoBotInfo): void {
+        // This is a trusted parameter, no sensitive info
+        this.info = { ...botInfo };
     }
 
     event(name: FronvoEventNames, callback: () => void): void {

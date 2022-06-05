@@ -9,12 +9,11 @@ export interface FetchProfileDataParams {
 }
 
 export interface FetchProfileDataResult extends FronvoResult {
-    profileData: Partial<FronvoAccount>;
+    profileData: FronvoAccount;
 }
 
-interface FronvoAccount {
+export interface FronvoAccount {
     username: string;
-    email: string;
-    password: string;
-    creationDate: Date;
+    email?: string;
+    creationDate: string;
 }
