@@ -3,11 +3,10 @@
 // **************************************************************** //
 
 import { Fronvo } from '@fronvo/api';
+import { token } from './config.json';
 
 // Create a bot instance and automatically connect
-const bot = new Fronvo({
-    token: 'token',
-});
+const bot = new Fronvo({ token });
 
 // Register the 'ready' event
 bot.event('ready', () => {
