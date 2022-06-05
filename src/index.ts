@@ -14,7 +14,6 @@ import { io } from 'socket.io-client';
 import binaryParser from 'socket.io-msgpack-parser';
 import { serverUrl, setSocket, socket } from 'variables/global';
 
-// TODO: Extend event classes, maybe combine to one due to limitations
 export class Fronvo {
     // To determine connection status
     private _hasConnected!: boolean;
