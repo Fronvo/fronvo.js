@@ -9,6 +9,8 @@
 
 </h2>
 
+<img src='https://raw.githubusercontent.com/Fronvo/fronvo.js/master/.github/assets/demo-run.svg' alt='Fronvo JS/TS API demo run'>
+
 ### Get started
 
 **[Documentation](https://github.com/Fronvo/fronvo.js/blob/master/.github/markdown/DOCUMENTATION.md)**
