@@ -15,6 +15,26 @@ npm i @fronvo/api
 
 </h2>
 
+# Examples
+
+Login with a bot token:
+
+```ts
+import { Fronvo } from '@fronvo/api';
+
+const bot = new Fronvo({
+    token: 'token',
+});
+```
+
+Register an event:
+
+```ts
+bot.event('ready', () => {
+    console.log(`${bot.info.username} is ready!`);
+});
+```
+
 ### Get started
 
 **[Documentation](https://github.com/Fronvo/fronvo.js/blob/master/.github/markdown/DOCUMENTATION.md)**
