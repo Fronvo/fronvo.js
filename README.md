@@ -1,4 +1,4 @@
-<p align='center'><img src='https://raw.githubusercontent.com/Fronvo/server/master/.github/assets/logo.png' alt='Fronvo logo'></p>
+<p align='center'><img src='https://raw.githubusercontent.com/Fronvo/fronvo.js/master/.github/assets/logo.svg' alt='Fronvo logo'></p>
 <p align='center'><b>The official JS/TS API of Fronvo</b></p>
 
 <h2 align='center'>
