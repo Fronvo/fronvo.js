@@ -8,31 +8,16 @@ import {
     FetchProfileDataParams,
     FetchProfileDataResult,
 } from 'interfaces/events/account/fetchProfileData';
-import { IsLoggedInResult } from 'interfaces/events/general/isLoggedIn';
-import { LoginParams, LoginResult } from 'interfaces/events/noAccount/login';
 import {
     LoginTokenParams,
     LoginTokenResult,
 } from 'interfaces/events/noAccount/loginToken';
-import {
-    RegisterParams,
-    RegisterResult,
-} from 'interfaces/events/noAccount/register';
 
 export interface ClientToServerEvents {
-    register: (
-        {}: RegisterParams,
-        callback?: ({}: RegisterResult) => void
-    ) => void;
-
-    login: ({}: LoginParams, callback?: ({}: LoginResult) => void) => void;
-
     loginToken: (
         {}: LoginTokenParams,
         callback?: ({}: LoginTokenResult) => void
     ) => void;
-
-    isLoggedIn: (callback?: ({}: IsLoggedInResult) => void) => void;
 
     fetchProfileId: (callback?: ({}: FetchProfileIdResult) => void) => void;
 
