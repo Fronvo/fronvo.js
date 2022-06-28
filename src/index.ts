@@ -54,7 +54,7 @@ export class Fronvo {
             if (!this._hasConnected) {
                 throw generateError('CONNECTION_FAILURE');
             }
-        }, 2000);
+        }, 10000);
     }
 
     private _afterConnect(token: string): void {
